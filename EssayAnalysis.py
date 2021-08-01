@@ -23,8 +23,15 @@ with open("Grader_responses.csv", mode="r") as file:
         essay.scores.append(float(row["Total Score"]))
         essay.score_agg = statistics.mean(essay.scores)
 
+with open("Personal_Statements/Superseding_Responses_Div_Stat.csv", mode='r') as file:
+    contents = csv.DictReader(file)
+    for row in contents:
+        essay = d["%s" % row["Competition#"]]
+        essay.div_stat_scores.append("Total Score")
+
 print(d['1'].scores)
 print(d['1'].score_agg)
+print(d['1'].div_stat_scores)
 
 
 
