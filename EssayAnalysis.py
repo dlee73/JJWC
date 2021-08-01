@@ -1,6 +1,13 @@
 import csv
 import statistics
 
+def strip_letters(string):
+    newstring = ''
+    for char in string:
+        if not char.isalpha() and char != "_":
+            newstring = newstring + char
+    return newstring
+
 def no_div_stat(essay):
     pass
 
