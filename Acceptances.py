@@ -2,16 +2,6 @@ from EssayAnalysis import Essay
 from utilities import*
 import csv
 
-Mannys_List = []
-
-with open("MannysList.txt") as contents:
-    for item in contents:
-        try:
-            Mannys_List.append(int(item))
-        except:
-            continue
-
-
 #take essay data from csv, store them as class, key them to number, store in dictionary
 total_essays = {}
 with open("Final_JJWC_Scores.csv", mode="r") as file:
@@ -21,7 +11,7 @@ with open("Final_JJWC_Scores.csv", mode="r") as file:
         essay = total_essays[row["Essay #"]]
         essay.z_score = float(row["Z_Score"])
         essay.preference = int(row["ILJ Preference"])
-        essay.clr = int(row["Essay #"]) in Mannys_List
+        essay.clr = row["Essay #"] in listify_file("MannysList.txt")
         essay.jlpp = row["Essay #"] in listify_file("RachelsList.txt")
         essay.ilj = essay.z_score > -1.7 and not essay.clr and not essay.jlpp
         if row["Essay #"] in listify_file("MadeOffer.txt"):
