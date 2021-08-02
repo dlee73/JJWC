@@ -22,23 +22,14 @@ with open("Final_JJWC_Scores.csv", mode="r") as file:
 with open("Acceptances_list.csv", mode="w") as file:
     file.write("Essay #,Z_Score,ILJ Preference,CLR,ILJ,JLPP,Made Offer\n")
     for essay in total_essays.keys():
-        file.write("{},{},{},{},{},{},{}\n".format(essay,
-                                                   total_essays[essay].z_score,
-                                                   total_essays[essay].preference,
-                                                   total_essays[essay].clr,
-                                                   total_essays[essay].ilj,
-                                                   total_essays[essay].jlpp,
-                                                   total_essays[essay].made_offer))
-ilj_accepts = []
+        file.write(f"{essay},"
+                   f"{total_essays[essay].z_score},"
+                   f"{total_essays[essay].preference},"
+                   f"{total_essays[essay].clr},"
+                   f"{total_essays[essay].ilj},"
+                   f"{total_essays[essay].jlpp},"
+                   f"{total_essays[essay].made_offer}")
 
-
-for essay in total_essays.keys():
-    if total_essays[essay].ilj:
-        ilj_accepts.append(essay)
-
-for x in ilj_accepts:
-    if str(int(x)) not in listify_file("MadeOffer.txt"):
-        print(x)
 
 
 
