@@ -15,9 +15,11 @@ class Essay:
         self.perc_edit_score = 0
         self.finalscore = 0
         self.z_score = 0
+        self.preference = 3
         self.clr = False
         self.ilj = False
         self.jlpp = False
+        self.called_Sue = False
 
 
 def strip_letters(string):
@@ -110,8 +112,6 @@ def main():
     print(testessay.perc_edit_score)
     print(testessay.perc_crit_essay_score)
     print(testessay.finalscore)
-
-
 
 if __name__ == "__main__":
     main()
