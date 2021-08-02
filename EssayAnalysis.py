@@ -19,7 +19,7 @@ class Essay:
         self.clr = False
         self.ilj = False
         self.jlpp = False
-        self.called_Sue = False
+        self.made_offer = False
 
 
 def strip_letters(string):

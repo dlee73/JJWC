@@ -12,7 +12,10 @@ def listify_file(file):
     output_list = []
     with open(file=file, mode="r") as contents:
         for item in contents:
-            output_list.append(str(int(item)))
+            try:
+                output_list.append(str(int(item)))
+            except:
+                continue
     return output_list
 
 def main():
